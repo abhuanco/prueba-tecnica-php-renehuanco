@@ -106,6 +106,21 @@ namespace Tests {
          *
          * Ensures that the method throws a `UserDoesNotExistException` when trying to retrieve a user that does not exist.
          */
+        public function testUpdateInvalidArguments(): void
+        {
+            $repository = new UserRepository();
+            $this->expectException(\InvalidArgumentException::class);
+            $this->expectExceptionMessage("Cannot update non-existent user.");
+
+            $user = new User(0, 'Alice', 'alice@example.com', "Pa$$2w0rd!");
+            $repository->update(user: $user);
+        }
+
+        /**
+         * Test the `getByIdOrFail` method of the `UserRepository` for a non-existent user.
+         *
+         * Ensures that the method throws a `UserDoesNotExistException` when trying to retrieve a user that does not exist.
+         */
         public function testGetByIdOrFailThrowsException(): void
         {
             $repository = new UserRepository();

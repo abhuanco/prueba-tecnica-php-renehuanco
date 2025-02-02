@@ -13,6 +13,7 @@ services:
       - '4080:443'
     volumes:
       - './../:/var/www/html'
+      - './../coverage:/var/www/html/coverage'
     environment:
       XDEBUG_CONFIG: client_host=${HOST_INTERNAL}
       XDEBUG_REMOTE_CONNECT_BACK: 1

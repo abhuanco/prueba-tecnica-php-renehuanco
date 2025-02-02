@@ -1,13 +1,13 @@
 <?php
-/*
+
 namespace App\Controller {
 
     use App\DTO\UserRequestDTO;
     use App\UseCase\SaveUserUseCase;
 
-    class UserController
+    readonly class UserController
     {
-        public function __construct(private readonly SaveUserUseCase $saveUserUseCase)
+        public function __construct(private SaveUserUseCase $saveUserUseCase)
         {
 
         }
@@ -19,4 +19,4 @@ namespace App\Controller {
             echo "User created";
         }
     }
-}*/
+}

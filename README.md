@@ -7,8 +7,6 @@ Este proyecto es una aplicación escrita en **PHP** con una arquitectura basada 
 - [Requisitos](#requisitos)
 - [Instalación](#instalación)
 - [Configuración](#configuración)
-- [Ejecución del Proyecto](#ejecución-del-proyecto)
-- [Estructura del Proyecto](#estructura-del-proyecto)
 - [Pruebas](#pruebas)
 - [Licencia](#licencia)
 
@@ -44,7 +42,8 @@ Antes de comenzar, asegúrate de tener instalados los siguientes componentes:
    ```bash
    docker exec -it app.test composer install
    ```
-4. ### Ejecutar pruebas unitarias
+## Pruebas
+1. ### Ejecutar pruebas unitarias
 
    ```bash
    docker exec -it app.test php ./vendor/bin/phpunit tests
@@ -53,7 +52,14 @@ Antes de comenzar, asegúrate de tener instalados los siguientes componentes:
    ```bash
    docker exec -it app.test composer test
    ```
-
+2. ### Prueba unitaria con cobertura
+   ```bash
+   docker exec -it app.test php ./vendor/bin/phpunit --coverage-html coverage
+   ```
+   o
+   ```bash
+   docker exec -it app.test composer coverage
+   ```
 ## Configuración
 
 El contenedor Docker viene configurado con Apache y PHP. Estos son algunos archivos relevantes que puedes ajustar según tus necesidades:
@@ -62,8 +68,3 @@ El contenedor Docker viene configurado con Apache y PHP. Estos son algunos archi
 - **`Dockerfile`**: Configuración específica de PHP.
 - **`php.ini`**: Ajustes de PHP personalizados en `docker/config/php/`.
 - **`default.conf`**: Configuración customizada de Apache en `docker/config/apache/`.
-
-## Pruebas unitarias
-   ```bash
-   docker exec -it app.test php ./vendor/bin/phpunit tests
-   ```

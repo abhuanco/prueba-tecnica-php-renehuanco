@@ -90,6 +90,10 @@ namespace Tests {
 
             $this->assertNotEquals($password, $hashedPassword);
             $this->assertTrue(password_verify($password, $hashedPassword));
+
+            $newPassword = "Pa$$3w0rd!";
+            $user->setPassword($newPassword);
+            $this->assertTrue(password_verify($newPassword, $user->getPassword()));
         }
     }
 }
